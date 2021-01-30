@@ -1,7 +1,12 @@
 # The Dream Team Application
 
-## MySQL + Node.js + MVC + Handlebars + Express.js + Sequelize ORM
-
+## Technologies Used
+* MySQL 
+* Node.js
+* MVC
+* Handlebars
+* Express.js
+* Sequelize ORM
 
 #### Create your dream sports team! Add team members via the textarea and "add" button, which then sorts these players into a "benched" area where they are not yet assigned a position.
 
