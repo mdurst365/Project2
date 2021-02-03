@@ -1,5 +1,6 @@
 // const { Model } = require('sequelize/types');
 const db = require('../models');
+var passport = require("../config/passport");
 
 module.exports = (app) =>{
     app.get("/api/users", function(req, res){
@@ -18,9 +19,21 @@ module.exports = (app) =>{
         }).then((dbUser) => res.json(dbUser));
     });
 
-    app.post('/api/users', function(req,res){
-        db.User.create(req.body).then((dbAuthor) => res.json(dbAuthor));
+    app.post('/api/signup', function(req,res){
+        db.User.create({
+            name: req.body.email,
+            password: req.body.password,
+            teamName: req.body.teamName,
+        }).then(function(){ 
+        res.redirect(307, "api/login")
+        }).catch(function(err){
+            res.status(401).json(err);
+        });
     });
+
+    app.post("/api/login", passport.authenticate("local"), function(req, res) {
+        res.json(req.user);
+      });
 
     app.delete('/api/users/:id', function(req,res){
         db.User.destroy({
