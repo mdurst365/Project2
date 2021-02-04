@@ -1,4 +1,5 @@
 var db = require("../models");
+var passport = require("../config/passport");
 
 //routes 
 module.exports = function(app){
