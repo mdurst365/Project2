@@ -5,16 +5,16 @@ var passport = require("../config/passport");
 module.exports = function(app){
     app.get("/api/players", function(req, res){
        db.Player.findAll({}).then(function(bdPlyer){
-            res.json(bdPlyer)
+            res.render("index", bdPlyer)
         })
     });
-    app.get("/api/players/:id", function(req, res){
-        db.Player.findOne({
-            where: {
-                id: req.params.id
-            },
-        }).then((dbPlayer) => res.json(dbPlayer));
-    });
+    // app.get("/api/players/:id", function(req, res){
+    //     db.Player.findOne({
+    //         where: {
+    //             id: req.params.id
+    //         },
+    //     }).then((dbPlayer) => res.json(dbPlayer));
+    // });
 
 
     app.put('/api/players', (req, res) => {
