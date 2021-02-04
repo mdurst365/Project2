@@ -21,7 +21,7 @@ module.exports = (app) =>{
 
     app.post('/api/signup', function(req,res){
         db.User.create({
-            name: req.body.email,
+            name: req.body.name,
             password: req.body.password,
             teamName: req.body.teamName,
         }).then(function(){ 
@@ -40,7 +40,7 @@ module.exports = (app) =>{
             where: {
                 id: req.params.id,
             },
-        }).then((dbAuthor) => res.json(dbAuthor));
+        }).then((dbUser) => res.json(dbUser));
 
     });
 
@@ -49,6 +49,6 @@ module.exports = (app) =>{
             where: {
                 id: req.body.id,
             },
-        })
+        }).then((dbUser) => res.json(dbUser));
     });
 }
