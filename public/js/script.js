@@ -94,10 +94,11 @@ $(document).ready(function() {
 
 
     $(".delete").on("click", e => {
-        console.log(e.target);
-        var target = e.target;
+        console.log(e.currentTarget);
+        var target = e.currentTarget;
         var li = target.closest(".player");
         console.log(li);
         li.remove();
+        // drake.remove();
 
     });
