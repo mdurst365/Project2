@@ -1,72 +1,72 @@
 
-<h2>Welcome, {{user}}!</h2>
+{{!-- <h2>Welcome, {{user}}!</h2> --}}
 
-<div class="position-relative">
+ <div class="position-relative">
 
-    <img src="./soccer-field.jpg" alt="soccer-field" id="field-img"/>
+    <img src="/img/soccer-field.jpg" alt="soccer-field" id="field-img"/>
 
     <div id="onFieldPositions">
 
-      <div class="positionContainer centerForward">
+      <div class="positionContainer wings">
 
-        <div class="centerForwardFlex">
+        <div class="wingsFlex">
 
-          <ul class="container" data-position="Center Forward">
+          <ul class="container" data-position="Left Winger">
           </ul>
           <ul class="container" data-position="Center Forward">
           </ul>
-
-        </div>
-        
-      </div>
-
-
-      <div class="positionContainer midfielder">
-
-        <div class="midFielderFlex">
-
-          <ul class="container" data-position="Midfielder">
-          </ul>
-          <ul class="container" data-position="Midfielder">
-          </ul>
-          <ul class="container" data-position="Midfielder">
+          <ul class="container" data-position="Right Winger">
           </ul>
 
         </div>
         
       </div>
 
-      <div class="positionContainer wingback">
+      <div class="positionContainer insideForward">
 
-        <div class="wingbackFlex">
+        <div class="insideForwardFlex">
 
-          <ul class="container" data-position="Wingback">
+          <ul class="container" data-position="Inside Forward-1">
           </ul>
-          <ul class="container" data-position="Wingback">
+          <ul class="container" data-position="Inside Forward-2">
           </ul>
 
         </div>
         
       </div>
 
-      <div class="positionContainer centerBack">
 
-        <div class="centerBackFlex">
+      <div class="positionContainer halfback">
 
-          <ul class="container" data-position="Center Back">
+        <div class="halfbackFlex">
+
+          <ul class="container" data-position="Halfback-1">
           </ul>
-          <ul class="container" data-position="Center Back">
+          <ul class="container" data-position="Halfback-2">
           </ul>
-          <ul class="container" data-position="Center Back">
+
+        </div>
+        
+      </div>
+
+      <div class="positionContainer fullback">
+
+        <div class="fullbackFlex">
+
+          <ul class="container" data-position="Fullback-1">
+          </ul>
+          <ul class="container" data-position="Fullback-2">
+          </ul>
+          <ul class="container" data-position="Fullback-3">
           </ul>
 
         </div>
       
     </div>
 
-      <div class="positionContainer goalie">
+      <div class="positionContainer GoalKeeper">
 
-        <ul class="container" data-position="Goalie">
+        <ul class="container" data-position="Goal Keeper">
         </ul>
 
       </div>
@@ -74,7 +74,6 @@
     </div>
 
 </div>
-
 
 <div class="formBenchedFlex">
 
@@ -89,15 +88,88 @@
   <div class="benchedContainer">
     <h2>Benched</h2>
     <ul class="container-benched" data-position="benched" id="benched">
-      <li data-name="David Beckham" data-id="1">
-        <span class="br"><img src="./jersey.png" class="jersey" alt="jersey"/></span>
+
+      <li class="player" data-name="David Beckham" data-id="1" data-position="Halfback-1">
+        <span class="br">
+          <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+            </button></span>
+        <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
         <span class="br name">Beckham</span>
       </li>
-      <li data-name="Laura Baumann" data-id="2">
-        <span class="br"><img src="./jersey.png" class="jersey" alt="jersey"/></span>
+      <li class="player" data-name="Laura Baumann" data-id="2" data-position="Inside Forward-2">
+        <span class="br">
+          <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+            </button></span>
+        <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
         <span class="br name">Baumann</span>
       </li>
+      <li class="player" data-name="Someone Else" data-id="3" data-position="Goal Keeper">
+        <span class="br">
+          <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+            </button></span>
+        <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
+        <span class="br name">Someone Else</span>
+      </li>
+      <li class="player" data-name="Someone Else" data-id="4" data-position="Right Winger">
+        <span class="br">
+          <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+            </button></span>
+        <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
+        <span class="br name">Someone Else</span>
+      </li>
+      <li class="player" data-name="Someone Else" data-id="5" data-position="Fullback-1">
+        <span class="br">
+          <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+            </button></span>
+        <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
+        <span class="br name">Someone Else</span>
+      </li>
+      <li class="player" data-name="Someone Else" data-id="6" data-position="Fullback-2">
+        <span class="br">
+          <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+            </button></span>
+        <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
+        <span class="br name">Someone Else</span>
+      </li>
+      <li class="player" data-name="Someone Else" data-id="7" data-position="Fullback-3">
+        <span class="br">
+          <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+            </button></span>
+        <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
+        <span class="br name">Someone Else</span>
+      </li>
+      <li class="player" data-name="Someone Else" data-id="8" data-position="benched">
+        <span class="br">
+          <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+            </button></span>
+        <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
+        <span class="br name">Someone Else</span>
+      </li>
+      <li class="player" data-name="Someone Else" data-id="9" data-position="benched">
+        <span class="br">
+          <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+            </button></span>
+        <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
+        <span class="br name">Someone Else</span>
+      </li>
     </ul>
+  </div>
+
+</div>
+
+
+
+{{!-- <div class="formBenchedFlex">
+
+    <form class="addPlayerForm">
+      <h2>Add a New Player</h2>
+      <label for="newPlayerName">Player Name:</label>
+      <input type="text" id="newPlayerName" name="newPlayerName" />
+      <button type="submit" id="addNewPlayer">Add Player</button>
+    </form>
+
+
+  <div class="benchedContainer">
 
     <!-- couldn't find a way to easily sort through players by position with handlebars. #each with further conditionals doesn't seem to work. so, by default and until finding a better solution, we are sorting them all default into the benched container (which will not change the position they came in with unless they are dragged in) and then an immediately invoked function will run a script to sort player to their respective positions if they have a preexisting one!-->
 
@@ -105,11 +177,11 @@
     <ul class="container-benched" data-position="benched" id="benched">
         {{#each players}}
                 <li data-name="{{name}}" data-id="{{id}}" data-position="{{position}}">
-                    <span class="br"><img src="./jersey.png" class="jersey" alt="jersey"/></span>
+                    <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
                     <span class="br name">{{name}}</span>
                 </li>
         {{/each}}
     </ul>
   </div>
 
-</div>
+</div> --}}
