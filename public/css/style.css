@@ -1,0 +1,252 @@
+
+/* --------------------------------- */
+/* ----- structural / general ------ */
+/* --------------------------------- */
+
+body {
+    list-style:none !important;
+    text-align: center;
+  }
+  
+  .benchedContainer {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .positionContainer {
+      text-transform: uppercase;
+      font-weight: bold;
+  }
+  
+  .position-relative {
+    position:relative;
+  }
+  
+  .container,
+  .container:hover,
+  .container:focus {
+    min-height: 3em;
+    min-width:3em;
+    display:block;
+  }
+  
+  /* .container:hover {
+    background-color:rgba(0,0,0,0.7);
+  } */
+  
+  .benchedContainer .container {
+    width:100%;
+    height:auto;
+    min-height:5em;
+    border:1px solid black;
+    border-radius:0%;
+  }
+  
+  #signIn {
+      display:none;
+  }
+  
+  #field-img {
+      width:100%;
+      height:100%;
+  }
+  
+  .br {
+      display:block;
+  }
+  
+  .formBenchedFlex {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+  }
+  
+  /* --------------------------------- */
+  /* --------- form styles ----------- */
+  /* --------------------------------- */
+  
+  .formBenchedFlex form, 
+  .formBenchedFlex .benchedContainer {
+    width:50%;
+  }
+  
+  .formBenchedFlex form {
+    text-align: center;
+    border:1px solid black;
+  }
+  
+  .formBenchedFlex form button {
+    display:block;
+    margin:0px auto;
+    margin-top:1em;
+  }
+  
+  
+  /* --------------------------------- */
+  /* -------- benched styles --------- */
+  /* --------------------------------- */
+  
+  .formBenchedFlex {
+    border:1px solid black;
+  }
+  
+  .formBenchedFlex ul {
+    border:1px dashed gray;
+  }
+  
+  .container-benched {
+    min-height:30em;
+  }
+  
+  /* --------------------------------- */
+  /* --------- font styles ----------- */
+  /* --------------------------------- */
+  
+  body {
+      font-family:sans-serif;
+  }
+  
+  h5 {
+      text-align:center;
+      margin-bottom:0;
+  }
+  
+  
+  
+  /* --------------------------------- */
+  /* --- position / player styles ---- */
+  /* --------------------------------- */
+  
+  ul {
+      list-style:none;
+      padding:0;
+  }
+  
+  ul:empty::after {
+    background-color:rgba(0,0,0,0.7);
+  }
+  
+  li {
+      background-color:transparent;
+      padding:10px;
+      border-radius:10px;
+      color:black;
+      width:5em;
+      text-align:center;
+      font-weight:bold;
+      text-transform: uppercase;
+  }
+  
+  #onFieldPositions {
+      position:absolute;
+      top:0;
+      width:100%;
+      height:100%;
+  }
+  
+  .jersey {
+      width:100%;
+      margin:0px auto;
+  }
+  
+  
+  
+  
+  /* --------------------------------- */
+  /* - position absolute positioning - */
+  /* --------------------------------- */
+  
+  
+  .positionContainer.GoalKeeper {
+    position:absolute;
+    top:42%;
+    left:5%;
+  }
+  
+  
+  .positionContainer.wings {
+    position:absolute;
+    top:0%;
+    right:15%;
+    height:90%;
+  }
+  
+  .wingsFlex {
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    height:95%;
+  }
+  
+  .positionContainer.halfback {
+    position:absolute;
+    top:0%;
+    left:25%;
+    height:95%;
+  }
+  
+  .halfbackFlex {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    height:95%;
+  }
+  
+  
+  .positionContainer.fullback {
+    position:absolute;
+    top:0%;
+    left:15%;
+    height:95%;
+  }
+  
+  .fullbackFlex {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    height:95%;
+  }
+  
+  .positionContainer.insideForward {
+    position:absolute;
+    top:0%;
+    right:35%;
+    height:95%;
+  }
+  
+  .insideForwardFlex {
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    height:95%;
+  }
+  
+  
+  
+  
+  /* --------------------------------- */
+  /* -------- dragula styles --------- */
+  /* --------------------------------- */
+  
+  .gu-mirror {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    opacity: 0.8;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+  }
+  .gu-hide {
+    display: none !important;
+  }
+  .gu-unselectable {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+  }
+  .gu-transit {
+    opacity: 0.2;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+    filter: alpha(opacity=20);
+  }
