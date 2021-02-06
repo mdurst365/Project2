@@ -3,29 +3,20 @@ var passport = require("../config/passport");
 
 //routes 
 module.exports = function(app){
-    app.get("/api/players", function(req, res){
+    app.get("/players", function(req, res){
        db.Player.findAll({}).then(function(bdPlyer){
-            res.render("login")
+            res.render("index", { players })
         })
         
     });
     app.get("/api/players/:UserId", function(req, res){
-        db.Player.findOne({
+        db.Player.findAll({
             where: {
                 id: req.params.UserId
             },
         }).then((dbPlayer) => res.json(dbPlayer));
     });
-<<<<<<< HEAD
-    app.get("/api/players/:UserId", function(req, res){
-        db.Player.findAll({
-            where: {
-                UserId: req.params.UserId
-            },
-        }).then((dbPlayer) => res.json(dbPlayer));
-    });
-=======
->>>>>>> 1feff61497d2ea0a122923ed963c30462eb5da8a
+   
 
 
     app.put('/api/players', (req, res) => {
@@ -39,12 +30,8 @@ module.exports = function(app){
 app.post("/api/players", function(req, res){
     db.Player.create({
     name: req.body.name,
-<<<<<<< HEAD
     position: "benched",
-    UserId: req.body.UserId
-=======
-    position:"benched"
->>>>>>> 1feff61497d2ea0a122923ed963c30462eb5da8a
+    UserId: req.user.id
     }).then( dbPlayer =>{
      res.json(dbPlayer)
     console.log(req.body)
