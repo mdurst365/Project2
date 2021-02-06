@@ -1,6 +1,8 @@
 /* --------------------------------- */
 /* ----- structural / general ------ */
 /* --------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Coda:wght@800&display=swap');
+
 
 body {
   list-style:none !important;
@@ -9,15 +11,17 @@ body {
 }
 
 .headerFont {
+  font-family: 'Coda', cursive;
   font-size: 4em;
   letter-spacing: 5px;
+  text-shadow: 2px 2px 4px #000000;
   text-align: center;
 }
 
 .headerTitle {
   width: 100%;
   padding: 1%;
-  background-color: #264b77;
+  background-color:darkgreen;
   color:white;
 }
 
@@ -184,7 +188,7 @@ footer {
   font-weight: bold;
   border:1px solid #00243f;
   border-radius:20px;
-  background-color:#264b77;
+  background-color: darkgreen;
   color:white;
 }
 
@@ -238,6 +242,15 @@ li {
     width:100%;
     margin:0px auto;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .jersey {
+    width: 40%;
+    margin:0px auto;
+}
+}
+
 
 .delete {
   background-color: transparent;
