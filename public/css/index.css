@@ -183,6 +183,18 @@ footer {
   display:flex;
 }
 
+@media only screen and (max-width: 600px){
+  .benchedContainer {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .9em;
+    border:1px solid #00243f;
+    border-radius:20px;
+    background-color: darkgreen;
+    color:white;
+  }
+}
+
 .benchedContainer {
   text-transform: uppercase;
   font-weight: bold;
@@ -220,12 +232,26 @@ ul:empty::after {
   background-color:rgba(0,0,0,0.7);
 }
 
-li {
-    background-color:transparent;
+@media only screen and (max-width: 600px) {
+  li {
+    background-color: transparent;
     padding:10px;
     border-radius:10px;
-    color:#00243f;
-    width:5em;
+    color: #00243f;
+    width: 5em;
+    font-size: .75em;
+    text-align:center;
+    font-weight:bold;
+    text-transform: uppercase;
+  }
+}
+
+li {
+    background-color: transparent;
+    padding:10px;
+    border-radius:10px;
+    color: #00243f;
+    width: 5em;
     text-align:center;
     font-weight:bold;
     text-transform: uppercase;
@@ -266,6 +292,7 @@ li {
   float: right;
 }
 
+
 .delete img,
 .update img {
   width:1em;
@@ -281,7 +308,6 @@ li {
 /* --------------------------------- */
 /* - position absolute positioning - */
 /* --------------------------------- */
-
 
 .positionContainer.GoalKeeper {
   position:absolute;
@@ -361,6 +387,10 @@ li {
   opacity: 0.8;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
+}
+
+.gu-mirror:hover {
+  background-color: violet;
 }
 .gu-hide {
   display: none !important;
