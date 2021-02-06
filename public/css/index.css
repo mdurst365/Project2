@@ -389,9 +389,6 @@ li {
   filter: alpha(opacity=80);
 }
 
-.gu-mirror:hover {
-  background-color: violet;
-}
 .gu-hide {
   display: none !important;
 }
