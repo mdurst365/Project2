@@ -7,9 +7,9 @@ module.exports = (sequelize,DataTypes) => {
     Player.associate = (models) =>{
 
         Player.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false,
-            },
+            // foreignKey: {
+            //     allowNull: false,
+            // },
             onDelete: 'CASCADE',
         });
     };

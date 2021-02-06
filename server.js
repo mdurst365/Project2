@@ -11,6 +11,7 @@ var passport = require("./config/passport");
 // =============================================================
 var app = express();
 var exphbs = require("express-handlebars");
+const session = require("express-session");
 
 var PORT = process.env.PORT || 8080;
 
@@ -20,12 +21,17 @@ var db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(passport.initialize());
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Static directory
 app.use(express.static("public"));
+app.use(session({
+  secret: "session secret", resave: true, saveUninitialized: true 
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routes
 // =============================================================

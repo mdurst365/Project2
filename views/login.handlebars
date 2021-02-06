@@ -6,7 +6,7 @@
 
     <div id="logIn" class="tab">
         <h2>Welcome Back!</h2>
-        <form action="/" method="POST" id="login-form">
+        <form action="/login" method="POST" id="login-form">
 
             <div class="br">
                 <label for="user">Username:</label>
@@ -15,7 +15,7 @@
 
             <div class="br">
                 <label for="password">Password:</label>
-                <input type="text" name="password" id="loginPassword"/>
+                <input type="password" name="password" id="loginPassword"/>
             </div>
 
             <button type="submit" name="login" id="loginButton">Login</button>
@@ -24,7 +24,7 @@
 
     <div id="register" class="tab" style="display:none">
         <h2>Sign Up and Join Us!</h2>
-         <form action="/" method="POST" id="register-form">
+         <form action="/signup" method="POST" id="register-form">
 
             <div class="br">
                 <label for="user">Username:</label>

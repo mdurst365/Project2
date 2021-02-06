@@ -10,13 +10,9 @@ module.exports = (app) =>{
 
     });
 
-    app.get('/index', function(req,res){
-        res.render('index');
-    })
+    
 
-    app.get('/login', function(req,res){
-        res.render('login');
-    })
+    
 
     app.get('/api/users/:id', function(req, res){
         db.User.findOne({
@@ -25,21 +21,32 @@ module.exports = (app) =>{
             },
             include: [db.Player],
         }).then((dbUser) => res.json(dbUser));
+
     });
 
-    app.post('/api/signup', function(req,res){
+    app.post('/signup', function(req,res){
         db.User.create({
-            name: req.body.name,
+            name: req.body.user,
             password: req.body.password,
             teamName: req.body.teamName,
         }).then(function(){ 
-        res.redirect(307, "/api/login")
+        res.redirect(307, "/login")
         }).catch(function(err){
             res.status(401).json(err);
         });
     });
 
-    app.post("/api/login", (req,res) => passport.authenticate('local', { successRedirect: "/index", failureRedirect: '/login'})(req, res));
+    app.post("/login", (req,res) => passport.authenticate('local', { successRedirect: "/", failureRedirect: '/login'})(req, res));
+
+
+    app.get('/login', function(req,res){
+        res.render('login');
+    })
+
+    app.get('/index', function(req,res){
+        res.render('index');
+    })
+
 
     app.delete('/api/users/:id', function(req,res){
         db.User.destroy({
@@ -50,21 +57,21 @@ module.exports = (app) =>{
 
     });
 
-    app.put('/api/users/:id', function(req,res){
-        db.User.update(req.body, {
-            where: {
-                id: req.body.id,
-            },
-        }).then((dbUser) => res.json(dbUser));
+    // app.put('/api/users/:id', function(req,res){
+    //     db.User.update(req.body, {
+    //         where: {
+    //             id: req.body.id,
+    //         },
+    //     }).then((dbUser) => res.json(dbUser));
 
-    });
+    // });
 
-    app.get('/api/users/:teamName', function(req,res){
-        db.User.findAll({
-            where:{
-                teamName: req.params.teamName,
-            },
-        }).then((dbUser) => res.json(dbUser));
-    })
+    // app.get('/api/users/:teamName', function(req,res){
+    //     db.User.findAll({
+    //         where:{
+    //             teamName: req.params.teamName,
+    //         },
+    //     }).then((dbUser) => res.json(dbUser));
+    // })
 
 }

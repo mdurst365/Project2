@@ -1,20 +1,26 @@
 var db = require("../models");
 var passport = require("../config/passport");
+const { response } = require("express");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //routes 
 module.exports = function(app){
     app.get("/players", function(req, res){
-       db.Player.findAll({}).then(function(bdPlyer){
+       db.Player.findAll({}).then(function(players){
             res.render("index", { players })
         })
         
     });
-    app.get("/api/players/:UserId", function(req, res){
-        db.Player.findAll({
-            where: {
-                id: req.params.UserId
-            },
-        }).then((dbPlayer) => res.json(dbPlayer));
+    app.get("/", isAuthenticated, async function(req, res){
+        const user = await db.User.findByPk(req.user.id);
+        // db.Player.findAll({
+        //     where: {
+        //         UserId: req.params.UserId
+        //     },
+        // }).then(function(players){res.render("index", { players })});
+    const players = await user.getPlayers()
+    res.render("index", { players });
+
     });
    
 

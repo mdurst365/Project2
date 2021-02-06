@@ -26,74 +26,74 @@
 
   // handle posting to the login route, grabbing info from inputs
 
-  $("#login-form").on("submit", e => {
+  // $("#login-form").on("submit", e => {
 
-      e.preventDefault();
+  //     e.preventDefault();
 
-      var user = document.getElementById("loginUser").value;
-      console.log(user);
-      var password = document.getElementById("loginPassword").value;
-      console.log(password);
+  //     var user = document.getElementById("loginUser").value;
+  //     console.log(user);
+  //     var password = document.getElementById("loginPassword").value;
+  //     console.log(password);
 
-      var userData = {
-        name: user,
-        password: password
-      }
+  //     var userData = {
+  //       name: user,
+  //       password: password
+  //     }
 
-      $.ajax("/api/login", {
+  //     // $.ajax("/login", {
 
-          type: "POST",
+  //     //     type: "POST",
 
-          data: userData,
+  //     //     data: userData,
 
-          success: function(req, err) { console.log("A user has been logged in!"); },
+  //     //     success: function(req, err) { console.log("A user has been logged in!"); },
 
-          error: function(req, err) { console.log("A user failed to log in with: " + err); }
+  //     //     error: function(req, err) { console.log("A user failed to log in with: " + err); }
 
-        }).then(() => {
+  //     //   }).then(() => {
 
-          // need to make some call to change to render the /index file here
+  //     //     // need to make some call to change to render the /index file here
 
-      });
+  //     // });
 
-  })
+  // })
 
   // handle posting to the register route, grabbing info from inputs
 
-  $("#register-form").on("submit", e => {
+  // $("#register-form").on("submit", e => {
 
-      e.preventDefault();
+  //     e.preventDefault();
 
-      var user = document.getElementById("registerUser").value;
-      console.log(user);
-      var password = document.getElementById("registerPassword").value;
-      console.log(password);
-      var teamName = document.getElementById("registerTeamName").value;
-      console.log(teamName);
+  //     var user = document.getElementById("registerUser").value;
+  //     console.log(user);
+  //     var password = document.getElementById("registerPassword").value;
+  //     console.log(password);
+  //     var teamName = document.getElementById("registerTeamName").value;
+  //     console.log(teamName);
 
-      var userData = {
-        name: user,
-        password: password,
-        teamName: teamName
-      }
+  //     var userData = {
+  //       name: user,
+  //       password: password,
+  //       teamName: teamName
+  //     }
 
-      $.ajax("/api/signup", {
+  //     // $.ajax("/api/signup", {
 
-          type: "POST",
+  //     //     type: "POST",
 
-          data: userData,
+  //     //     data: userData,
 
-          success: function(req, err) { console.log("A user has been registered!"); },
+  //     //     success: function(req, err) { console.log("A user has been registered!"); },
 
-          error: function(req, err) { console.log("A user failed to register with: " + err); }
+  //     //     error: function(req, err) { console.log("A user failed to register with: " + err); }
 
-        }).then(() => {
+  //     //   }).then(() => {
 
-          // need to make some call to switch back to log in and make the user log in
+  //     //     // need to make some call to switch back to log in and make the user log in
 
-      });
+  //     // });
 
-  })
+  // })
 
 /* -------------------------------------------- */
 /* -------- SCRIPTS FOR INDEX.HANDLEBARS ------ */
@@ -103,8 +103,8 @@
 // immediately invoked functions to position players once they are pulled from api
 
 $(document).ready(function() {
-      updatePlayers();
-      positionPlayers();
+      
+      // positionPlayers();
     });
 
 
@@ -126,7 +126,7 @@ $(document).ready(function() {
       //   }
       // }
 
-        $.ajax("/api/players", {
+        $.ajax("/players", {
 
           type: "GET",
 
