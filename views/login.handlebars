@@ -1,15 +1,48 @@
+<div id="formContainer">
+    <div class="tab-bar">
+    <button class="bar-item activeTab" onclick="openOption('logIn')" id="loginButton">Log In</button>
+    <button class="bar-item" onclick="openOption('register')" id="registerButton">Register</button>
+    </div>
 
+    <div id="logIn" class="tab">
+        <h2>Welcome Back!</h2>
+        <form action="/" method="POST" id="login-form">
 
-<form id="login">
+            <div class="br">
+                <label for="user">Username:</label>
+                <input type="text" name="user" id="loginUser"/>
+            </div>
 
-    <input type="text" name="user" id="name"/>
-    <input type="text" name="password" id="password"/>
-    <button type="submit" name="login" id="login">Login</button>
+            <div class="br">
+                <label for="password">Password:</label>
+                <input type="text" name="password" id="loginPassword"/>
+            </div>
 
-</form>
+            <button type="submit" name="login" id="loginButton">Login</button>
+        </form>
+    </div>
 
+    <div id="register" class="tab" style="display:none">
+        <h2>Sign Up and Join Us!</h2>
+         <form action="/" method="POST" id="register-form">
 
-<div class="tab-bar">
-  <button class="bar-item" onclick="openOption('Log In')">Log In</button>
-  <button class="bar-item" onclick="openOption('Register')">Register</button>
+            <div class="br">
+                <label for="user">Username:</label>
+                <input type="text" name="user" id="registerUser"/>
+            </div>
+
+            <div class="br">
+                <label for="password">Password:</label>
+                <input type="text" name="password" id="registerPassword"/>
+            </div>
+
+            <div class="br">
+                <label for="user">Team Name:</label>
+                <input type="text" name="teamName" id="registerTeamName"/>
+            </div>
+
+            <button type="submit" name="register" id="registerButton">Register</button>
+        </form>
+    </div>
+
 </div>
