@@ -1,6 +1,8 @@
 /* --------------------------------- */
 /* ----- structural / general ------ */
 /* --------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Coda:wght@800&display=swap');
+
 
 body {
   list-style:none !important;
@@ -9,15 +11,17 @@ body {
 }
 
 .headerFont {
+  font-family: 'Coda', cursive;
   font-size: 4em;
   letter-spacing: 5px;
+  text-shadow: 2px 2px 4px #000000;
   text-align: center;
 }
 
 .headerTitle {
   width: 100%;
   padding: 1%;
-  background-color: #264b77;
+  background-color:darkgreen;
   color:white;
 }
 
@@ -179,12 +183,24 @@ footer {
   display:flex;
 }
 
+@media only screen and (max-width: 600px){
+  .benchedContainer {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .9em;
+    border:1px solid #00243f;
+    border-radius:20px;
+    background-color: darkgreen;
+    color:white;
+  }
+}
+
 .benchedContainer {
   text-transform: uppercase;
   font-weight: bold;
   border:1px solid #00243f;
   border-radius:20px;
-  background-color:#264b77;
+  background-color: darkgreen;
   color:white;
 }
 
@@ -216,12 +232,26 @@ ul:empty::after {
   background-color:rgba(0,0,0,0.7);
 }
 
-li {
-    background-color:transparent;
+@media only screen and (max-width: 600px) {
+  li {
+    background-color: transparent;
     padding:10px;
     border-radius:10px;
-    color:#00243f;
-    width:5em;
+    color: #00243f;
+    width: 5em;
+    font-size: .75em;
+    text-align:center;
+    font-weight:bold;
+    text-transform: uppercase;
+  }
+}
+
+li {
+    background-color: transparent;
+    padding:10px;
+    border-radius:10px;
+    color: #00243f;
+    width: 5em;
     text-align:center;
     font-weight:bold;
     text-transform: uppercase;
@@ -239,6 +269,15 @@ li {
     margin:0px auto;
 }
 
+
+@media only screen and (max-width: 600px) {
+  .jersey {
+    width: 40%;
+    margin:0px auto;
+}
+}
+
+
 .delete {
   background-color: transparent;
   border:none;
@@ -252,6 +291,7 @@ li {
   width:auto;
   float: right;
 }
+
 
 .delete img,
 .update img {
@@ -268,7 +308,6 @@ li {
 /* --------------------------------- */
 /* - position absolute positioning - */
 /* --------------------------------- */
-
 
 .positionContainer.GoalKeeper {
   position:absolute;
@@ -349,6 +388,7 @@ li {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   filter: alpha(opacity=80);
 }
+
 .gu-hide {
   display: none !important;
 }
