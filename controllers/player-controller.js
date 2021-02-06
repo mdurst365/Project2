@@ -7,7 +7,16 @@ module.exports = function(app){
        db.Player.findAll({}).then(function(bdPlyer){
             res.render("login")
         })
+        
     });
+    app.get("/api/players/:UserId", function(req, res){
+        db.Player.findOne({
+            where: {
+                id: req.params.UserId
+            },
+        }).then((dbPlayer) => res.json(dbPlayer));
+    });
+<<<<<<< HEAD
     app.get("/api/players/:UserId", function(req, res){
         db.Player.findAll({
             where: {
@@ -15,6 +24,8 @@ module.exports = function(app){
             },
         }).then((dbPlayer) => res.json(dbPlayer));
     });
+=======
+>>>>>>> 1feff61497d2ea0a122923ed963c30462eb5da8a
 
 
     app.put('/api/players', (req, res) => {
@@ -28,8 +39,12 @@ module.exports = function(app){
 app.post("/api/players", function(req, res){
     db.Player.create({
     name: req.body.name,
+<<<<<<< HEAD
     position: "benched",
     UserId: req.body.UserId
+=======
+    position:"benched"
+>>>>>>> 1feff61497d2ea0a122923ed963c30462eb5da8a
     }).then( dbPlayer =>{
      res.json(dbPlayer)
     console.log(req.body)
