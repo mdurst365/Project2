@@ -1,6 +1,11 @@
 
 {{!-- <h2>Welcome, {{user}}!</h2> --}}
 
+<ul id="fauxNav">
+  <li id="user-welcome">Welcome, {{user}}!</li>
+  <li><button id="logOut">Log Out</button></li>
+</ul>
+
  <div class="position-relative">
 
     <img src="/img/soccer-field.jpg" alt="soccer-field" id="field-img"/>
@@ -77,21 +82,22 @@
 
 <div class="formBenchedFlex">
 
-    <form class="addPlayerForm">
+    <form action="/" method="POST" class="addPlayerForm">
       <h2>Add a New Player</h2>
-      <label for="newPlayerName">Player Name:</label>
+      {{!-- <label for="newPlayerName">Player Name:</label> --}}
       <input type="text" id="newPlayerName" name="newPlayerName" />
       <button type="submit" id="addNewPlayer">Add Player</button>
     </form>
 
 
   <div class="benchedContainer">
-    <h2>Benched</h2>
+    <h2>Benched Players</h2>
     <ul class="container-benched" data-position="benched" id="benched">
 
       <li class="player" data-name="David Beckham" data-id="1" data-position="Halfback-1">
         <span class="br">
           <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+          <button type="button" class="update"><img src="/img/edit.png" alt="update this player"/>
             </button></span>
         <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
         <span class="br name">Beckham</span>
@@ -99,6 +105,7 @@
       <li class="player" data-name="Laura Baumann" data-id="2" data-position="Inside Forward-2">
         <span class="br">
           <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+          <button type="button" class="update"><img src="/img/edit.png" alt="update this player"/>
             </button></span>
         <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
         <span class="br name">Baumann</span>
@@ -106,6 +113,7 @@
       <li class="player" data-name="Someone Else" data-id="3" data-position="Goal Keeper">
         <span class="br">
           <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+          <button type="button" class="update"><img src="/img/edit.png" alt="update this player"/>
             </button></span>
         <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
         <span class="br name">Someone Else</span>
@@ -113,6 +121,7 @@
       <li class="player" data-name="Someone Else" data-id="4" data-position="Right Winger">
         <span class="br">
           <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+          <button type="button" class="update"><img src="/img/edit.png" alt="update this player"/>
             </button></span>
         <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
         <span class="br name">Someone Else</span>
@@ -120,6 +129,7 @@
       <li class="player" data-name="Someone Else" data-id="5" data-position="Fullback-1">
         <span class="br">
           <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+          <button type="button" class="update"><img src="/img/edit.png" alt="update this player"/>
             </button></span>
         <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
         <span class="br name">Someone Else</span>
@@ -127,6 +137,7 @@
       <li class="player" data-name="Someone Else" data-id="6" data-position="Fullback-2">
         <span class="br">
           <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+          <button type="button" class="update"><img src="/img/edit.png" alt="update this player"/>
             </button></span>
         <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
         <span class="br name">Someone Else</span>
@@ -134,6 +145,7 @@
       <li class="player" data-name="Someone Else" data-id="7" data-position="Fullback-3">
         <span class="br">
           <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+          <button type="button" class="update"><img src="/img/edit.png" alt="update this player"/>
             </button></span>
         <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
         <span class="br name">Someone Else</span>
@@ -141,6 +153,7 @@
       <li class="player" data-name="Someone Else" data-id="8" data-position="benched">
         <span class="br">
           <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+          <button type="button" class="update"><img src="/img/edit.png" alt="update this player"/>
             </button></span>
         <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
         <span class="br name">Someone Else</span>
@@ -148,10 +161,12 @@
       <li class="player" data-name="Someone Else" data-id="9" data-position="benched">
         <span class="br">
           <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/>
+          <button type="button" class="update"><img src="/img/edit.png" alt="update this player"/>
             </button></span>
         <span class="br"><img src="/img/jersey.png" class="jersey" alt="jersey"/></span>
         <span class="br name">Someone Else</span>
       </li>
+      
     </ul>
   </div>
 

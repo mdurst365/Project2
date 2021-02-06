@@ -1,4 +1,3 @@
-
 /* --------------------------------- */
 /* ----- structural / general ------ */
 /* --------------------------------- */
@@ -6,11 +5,35 @@
 body {
   list-style:none !important;
   text-align: center;
+  color:#00243f;
 }
 
-.benchedContainer {
-  text-transform: uppercase;
-  font-weight: bold;
+.headerFont {
+  font-size: 4em;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.headerTitle {
+  width: 100%;
+  padding: 1%;
+  background-color: #264b77;
+  color:white;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#00243f; 
+  color:white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .75em;
+  letter-spacing: 1px;
+  line-height: 2em;
+  text-align: center;
+  padding: .5%;
 }
 
 .positionContainer {
@@ -38,7 +61,7 @@ body {
   width:100%;
   height:auto;
   min-height:5em;
-  border:1px solid black;
+  border:1px solid #00243f;
   border-radius:0%;
 }
 
@@ -59,26 +82,78 @@ body {
   display:flex;
   flex-direction:row;
   justify-content: space-around;
+  padding-bottom:2em;
+}
+
+#fauxNav {
+  margin:0;
+  display:flex;
+  flex-direction:row;
+  justify-content: flex-end;
+}
+
+#fauxNav button {
+  color:#00243f;
+}
+
+#fauxNav li {
+  width:auto;
+}
+
+#logOut {
+  background-color:transparent;
+  border:none;
+  font-weight:bold;
+  text-transform: uppercase;
+}
+
+#logOut:hover {
+  cursor: pointer;
+}
+
+#user-welcome {
+  width:auto;
 }
 
 /* --------------------------------- */
 /* --------- form styles ----------- */
 /* --------------------------------- */
 
-.formBenchedFlex form, 
+.addPlayerForm, 
 .formBenchedFlex .benchedContainer {
   width:50%;
+  margin:5px;
 }
 
-.formBenchedFlex form {
+.addPlayerForm {
   text-align: center;
-  border:1px solid black;
+  border:1px solid #dce0cd;
+  border-radius:20px;
+  background-color:#dce0cd;
+  height:100%;
+  padding-top:5%;
+  padding-bottom:5%;
 }
 
-.formBenchedFlex form button {
+.addPlayerForm h2 {
+  margin-top:0;
+}
+
+.addPlayerForm button {
   display:block;
   margin:0px auto;
-  margin-top:1em;
+  margin-top:5%;
+  padding:2%;
+  background-color: #264b77;
+  border-color:#264b77;
+  border-radius:5px;
+  color:white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.addPlayerForm button:hover {
+  cursor: pointer;
 }
 
 
@@ -86,16 +161,31 @@ body {
 /* -------- benched styles --------- */
 /* --------------------------------- */
 
-.formBenchedFlex {
-  border:1px solid black;
-}
+/* .formBenchedFlex {
+  background-color:#dce0cd;
+} */
 
 .formBenchedFlex ul {
   border:1px dashed gray;
+  background-color:#dce0cd;
+  border-radius:20px;
+  margin:10px;
+  display:flex;
+  flex-wrap:wrap;
 }
 
 .container-benched {
   min-height:30em;
+  display:flex;
+}
+
+.benchedContainer {
+  text-transform: uppercase;
+  font-weight: bold;
+  border:1px solid #00243f;
+  border-radius:20px;
+  background-color:#264b77;
+  color:white;
 }
 
 /* --------------------------------- */
@@ -130,7 +220,7 @@ li {
     background-color:transparent;
     padding:10px;
     border-radius:10px;
-    color:black;
+    color:#00243f;
     width:5em;
     text-align:center;
     font-weight:bold;
@@ -156,11 +246,20 @@ li {
   float: right;
 }
 
-.delete img {
+.update {
+  background-color: transparent;
+  border:none;
+  width:auto;
+  float: right;
+}
+
+.delete img,
+.update img {
   width:1em;
 }
 
-.delete img:hover {
+.delete img:hover,
+.update img:hover {
   cursor: pointer;
 }
 

@@ -31,7 +31,7 @@ module.exports = (app) =>{
         });
     });
 
-    app.post("/api/login", (req,res) => passport.authenticate('local', { successRedirect: '/', failureRedirect: 'login'})(req, res));
+    app.post("/api/login", (req,res) => passport.authenticate('local', { successRedirect: "/", failureRedirect: 'login'})(req, res));
 
     app.delete('/api/users/:id', function(req,res){
         db.User.destroy({
