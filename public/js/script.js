@@ -1,23 +1,41 @@
 
 
 $(document).ready(function() {
-      updatePositions();
+      updatePlayers();
       positionPlayers();
     });
 
-    var updatePositions = function() {
+    var updatePlayers = function() {
 
-        var positionLists = document.querySelectorAll(".container");
+        // var positionLists = document.querySelectorAll(".container");
 
-        for (i=0; i<positionLists.length; i++) {
+        // for (i=0; i<positionLists.length; i++) {
 
-          if (positionLists[i].childElementCount == 0) {
+        //   if (positionLists[i].childElementCount == 0) {
 
-            var positionName = positionLists[i].getAttribute("data-position");
+        //     var positionName = positionLists[i].getAttribute("data-position");
 
-            positionLists[i].textContent = positionName;
-          }
-        }
+        //     positionLists[i].textContent = positionName;
+        //   }
+        // }
+
+        $.ajax("/api/players", {
+
+          type: "GET",
+
+          success: function (data) { console.log("here is your data: " + data); } ,
+
+          error: function(err) { console.log("error:" + err); }
+
+          }).then(() => {
+
+          // location.reload();
+
+          console.log("you made it to the end of this GET request!");
+
+        });
+
+
 
       }
 
@@ -50,14 +68,22 @@ $(document).ready(function() {
       event.preventDefault();
 
       var newPlayerName = $(".addPlayerForm #newPlayerName").textContent;
+      
+      console.log(newPlayerName);
 
-      $.ajax("/api/playerRoster", {
+      $.ajax("/api/players", {
 
           type: "POST",
 
-          data: newPlayerName
+          data: newPlayerName,
+
+          success: function(req, err) { console.log("A new player has been created!"); },
+
+          error: function(req, err) { console.log("Your player failed to post with: " + err); }
 
           }).then(() => {
+
+          // updatePlayers();
 
           location.reload();
 
@@ -97,8 +123,61 @@ $(document).ready(function() {
         console.log(e.currentTarget);
         var target = e.currentTarget;
         var li = target.closest(".player");
+        var id = li.getAttribute("data-id");
+        var url = "/api/players/" + id
+
+        $.ajax(url, {
+
+          type: "DELETE",
+
+          error: function(req, err) { console.log("Your player failed to delete with err: " + err); }
+
+          }).then(() => {
+
+          li.remove();
+
+          location.reload();
+
+        });
+
         console.log(li);
-        li.remove();
+
         // drake.remove();
 
     });
+
+    $(".update").on("click", e => {
+      console.log(e.currentTarget);
+      var target = e.currentTarget;
+      var li = target.closest(".player");
+      var name = li.getAttribute("data-name");
+      var id = li.getAttribute("data-id");
+      console.log(id);
+      var url = "/api/players/" + id
+      console.log(name);
+
+      var newName = window.prompt("Update the Player name:", name);
+
+      console.log(newName);
+
+      if (newName) {
+
+        $.ajax(url, {
+
+          type: "PUT",
+
+          data: newName,
+
+          error: function(req, err) { console.log("Your player failed to update with a new name: " + err); }
+
+          }).then(() => {
+
+          // updatePlayers();
+
+          location.reload();
+
+        });
+      }
+      
+
+  });

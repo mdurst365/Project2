@@ -156,11 +156,20 @@ li {
   float: right;
 }
 
-.delete img {
+.update {
+  background-color: transparent;
+  border:none;
+  width:auto;
+  float: right;
+}
+
+.delete img,
+.update img {
   width:1em;
 }
 
-.delete img:hover {
+.delete img:hover,
+.update img:hover {
   cursor: pointer;
 }
 
