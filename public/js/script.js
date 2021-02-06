@@ -50,8 +50,8 @@ $(document).ready(function() {
       event.preventDefault();
 
       var newPlayerName = $(".addPlayerForm #newPlayerName").textContent;
-
-      $.ajax("/api/playerRoster", {
+      console.log(newPlayerName);
+      $.ajax("/api/players", {
 
           type: "POST",
 

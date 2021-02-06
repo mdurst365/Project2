@@ -5,16 +5,16 @@ var passport = require("../config/passport");
 module.exports = function(app){
     app.get("/api/players", function(req, res){
        db.Player.findAll({}).then(function(bdPlyer){
-            res.render("index", bdPlyer)
+            res.render("login")
         })
     });
-    // app.get("/api/players/:id", function(req, res){
-    //     db.Player.findOne({
-    //         where: {
-    //             id: req.params.id
-    //         },
-    //     }).then((dbPlayer) => res.json(dbPlayer));
-    // });
+    app.get("/api/players/:UserId", function(req, res){
+        db.Player.findAll({
+            where: {
+                UserId: req.params.UserId
+            },
+        }).then((dbPlayer) => res.json(dbPlayer));
+    });
 
 
     app.put('/api/players', (req, res) => {
@@ -28,14 +28,15 @@ module.exports = function(app){
 app.post("/api/players", function(req, res){
     db.Player.create({
     name: req.body.name,
-    position: req.body.position
+    position: "benched",
+    UserId: req.body.UserId
     }).then( dbPlayer =>{
      res.json(dbPlayer)
     console.log(req.body)
 
     })
 })
-app.delete("/api/players/:id", function(req,res){
+app.delete("/api/players/:UserId/:id", function(req,res){
     db.Player.destroy({
         where : {
             id : req.params.id

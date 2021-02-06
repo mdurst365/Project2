@@ -10,7 +10,7 @@ module.exports = (app) =>{
 
     });
 
-    app.get('/apiusers/:id', function(req, res){
+    app.get('/api/users/:id', function(req, res){
         db.User.findOne({
             where:{
                 id: req.params.id,
@@ -25,15 +25,13 @@ module.exports = (app) =>{
             password: req.body.password,
             teamName: req.body.teamName,
         }).then(function(){ 
-        res.redirect(307, "api/login")
+        res.redirect(307, "/api/login")
         }).catch(function(err){
             res.status(401).json(err);
         });
     });
 
-    app.post("/api/login", passport.authenticate("local"), function(req, res) {
-        res.json(req.user);
-      });
+    app.post("/api/login", (req,res) => passport.authenticate('local', { successRedirect: '/', failureRedirect: 'login'})(req, res));
 
     app.delete('/api/users/:id', function(req,res){
         db.User.destroy({
@@ -50,5 +48,6 @@ module.exports = (app) =>{
                 id: req.body.id,
             },
         }).then((dbUser) => res.json(dbUser));
+
     });
 }
