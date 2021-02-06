@@ -1,4 +1,13 @@
+/* 
+--- SCRIPTS FOR LOGINS ON LOGIN.HANDLEBARS
+*/
 
+
+
+
+/* 
+--- SCRIPTS FOR HANDLING PLAYERS ON INDEX.HANDLEBARS
+*/
 
 $(document).ready(function() {
       updatePlayers();
@@ -67,15 +76,19 @@ $(document).ready(function() {
 
       event.preventDefault();
 
-      var newPlayerName = $(".addPlayerForm #newPlayerName").textContent;
+      // var newPlayerName = $(".addPlayerForm #newPlayerName").textContent;
       
+      var playerData = {
+        name: $(".addPlayerForm #newPlayerName").textContent
+      }
+
       console.log(newPlayerName);
 
       $.ajax("/api/players", {
 
           type: "POST",
 
-          data: newPlayerName,
+          data: playerData,
 
           success: function(req, err) { console.log("A new player has been created!"); },
 
@@ -158,6 +171,10 @@ $(document).ready(function() {
 
       var newName = window.prompt("Update the Player name:", name);
 
+      var playerData = {
+        name: newName
+      }
+
       console.log(newName);
 
       if (newName) {
@@ -166,7 +183,7 @@ $(document).ready(function() {
 
           type: "PUT",
 
-          data: newName,
+          data: playerData,
 
           error: function(req, err) { console.log("Your player failed to update with a new name: " + err); }
 

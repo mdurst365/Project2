@@ -1,6 +1,11 @@
 
 {{!-- <h2>Welcome, {{user}}!</h2> --}}
 
+<ul id="fauxNav">
+  <li id="user-welcome">Welcome, {{user}}!</li>
+  <li><button id="logOut">Log Out</button></li>
+</ul>
+
  <div class="position-relative">
 
     <img src="/img/soccer-field.jpg" alt="soccer-field" id="field-img"/>
@@ -79,14 +84,14 @@
 
     <form action="/" method="POST" class="addPlayerForm">
       <h2>Add a New Player</h2>
-      <label for="newPlayerName">Player Name:</label>
+      {{!-- <label for="newPlayerName">Player Name:</label> --}}
       <input type="text" id="newPlayerName" name="newPlayerName" />
       <button type="submit" id="addNewPlayer">Add Player</button>
     </form>
 
 
   <div class="benchedContainer">
-    <h2>Benched</h2>
+    <h2>Benched Players</h2>
     <ul class="container-benched" data-position="benched" id="benched">
 
       <li class="player" data-name="David Beckham" data-id="1" data-position="Halfback-1">
