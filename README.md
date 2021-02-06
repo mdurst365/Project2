@@ -7,6 +7,7 @@
 * Handlebars
 * Express.js
 * Sequelize ORM
+* Dragula
 
 #### Create your dream sports team! Add team members via the textarea and "add" button, which then sorts these players into a "benched" area where they are not yet assigned a position.
 
