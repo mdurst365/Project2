@@ -13,6 +13,11 @@ var app = express();
 var exphbs = require("express-handlebars");
 const session = require("express-session");
 
+// Config Handlebars
+// =============================================================
+const Handlebars = require('handlebars')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+
 var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
@@ -22,7 +27,7 @@ var db = require("./models");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main", handlebars: allowInsecurePrototypeAccess(Handlebars) }));
 app.set("view engine", "handlebars");
 
 // Static directory

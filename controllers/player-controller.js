@@ -25,10 +25,10 @@ module.exports = function(app){
    
 
 
-    app.put('/api/players', (req, res) => {
+    app.put('/api/players/:id', (req, res) => {
         db.Player.update(req.body, {
            where :{
-               id: req.body.id
+               id: req.params.id
            },
         }).then((dbPlayer) => res.json(dbPlayer));
       });

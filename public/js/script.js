@@ -24,151 +24,34 @@
 
   });
 
-  // handle posting to the login route, grabbing info from inputs
-
-  // $("#login-form").on("submit", e => {
-
-  //     e.preventDefault();
-
-  //     var user = document.getElementById("loginUser").value;
-  //     console.log(user);
-  //     var password = document.getElementById("loginPassword").value;
-  //     console.log(password);
-
-  //     var userData = {
-  //       name: user,
-  //       password: password
-  //     }
-
-  //     // $.ajax("/login", {
-
-  //     //     type: "POST",
-
-  //     //     data: userData,
-
-  //     //     success: function(req, err) { console.log("A user has been logged in!"); },
-
-  //     //     error: function(req, err) { console.log("A user failed to log in with: " + err); }
-
-  //     //   }).then(() => {
-
-  //     //     // need to make some call to change to render the /index file here
-
-  //     // });
-
-  // })
-
-  // handle posting to the register route, grabbing info from inputs
-
-  // $("#register-form").on("submit", e => {
-
-  //     e.preventDefault();
-
-  //     var user = document.getElementById("registerUser").value;
-  //     console.log(user);
-  //     var password = document.getElementById("registerPassword").value;
-  //     console.log(password);
-  //     var teamName = document.getElementById("registerTeamName").value;
-  //     console.log(teamName);
-
-  //     var userData = {
-  //       name: user,
-  //       password: password,
-  //       teamName: teamName
-  //     }
-
-  //     // $.ajax("/api/signup", {
-
-  //     //     type: "POST",
-
-  //     //     data: userData,
-
-  //     //     success: function(req, err) { console.log("A user has been registered!"); },
-
-  //     //     error: function(req, err) { console.log("A user failed to register with: " + err); }
-
-  //     //   }).then(() => {
-
-  //     //     // need to make some call to switch back to log in and make the user log in
-
-  //     // });
-
-  // })
-
 /* -------------------------------------------- */
 /* -------- SCRIPTS FOR INDEX.HANDLEBARS ------ */
 /* -------------------------------------------- */
 
-
 // immediately invoked functions to position players once they are pulled from api
 
-$(document).ready(function() {
-      
-      // positionPlayers();
-    });
+  var positionPlayers = function() {
 
+    var initialJoin = document.getElementById("benched");
 
-  // may not be necessary to "get" api route of players if they will render via handlebars calls
+    var players = initialJoin.querySelectorAll("li");
 
-  var updatePlayers = function() {
+    for (i=0; i<players.length; i++) {
 
-    // this inserts position names on all the position spaces -- unsure if necessary
+            var position = players[i].getAttribute("data-position");
 
-      // var positionLists = document.querySelectorAll(".container");
+            var positionOptions = document.querySelectorAll(".container");
 
-      // for (i=0; i<positionLists.length; i++) {
+            for (p=0; p<positionOptions.length; p++) {
 
-      //   if (positionLists[i].childElementCount == 0) {
+                if (positionOptions[p].getAttribute("data-position") == position && positionOptions[p].childElementCount == 0) {
 
-      //     var positionName = positionLists[i].getAttribute("data-position");
+                    positionOptions[p].append(players[i]);
+                }
 
-      //     positionLists[i].textContent = positionName;
-      //   }
-      // }
-
-        $.ajax("/players", {
-
-          type: "GET",
-
-          success: function (data) { console.log("here is your data: " + data); } ,
-
-          error: function(err) { console.log("error:" + err); }
-
-          }).then(() => {
-
-          // location.reload();
-
-          console.log("you made it to the end of this GET request!");
-
-        });
-
-    }
-
-    /* when all of the players from api render into benched, this function 
-    places them into their correct position based on data-position attribute */
-
-    var positionPlayers = function() {
-
-      var initialJoin = document.getElementById("benched");
-
-      var players = initialJoin.querySelectorAll("li");
-
-      for (i=0; i<players.length; i++) {
-
-              var position = players[i].getAttribute("data-position");
-
-              var positionOptions = document.querySelectorAll(".container");
-
-              for (p=0; p<positionOptions.length; p++) {
-
-                  if (positionOptions[p].getAttribute("data-position") == position && positionOptions[p].childElementCount == 0) {
-
-                      positionOptions[p].append(players[i]);
-                  }
-
-            }
-        }
-    }
+          }
+      }
+  }
 
 
     // handles form submission of the "add player" form and it's ajax call
@@ -197,8 +80,6 @@ $(document).ready(function() {
 
         console.log(playerData.name);
 
-        console.log(newPlayerName);
-
         $.ajax("/api/players", {
 
             type: "POST",
@@ -225,9 +106,10 @@ $(document).ready(function() {
     // handles ajax call and frontend handling of the "delete" button for a player
 
     $(".delete").on("click", e => {
-        console.log(e.currentTarget);
         var target = e.currentTarget;
+        console.log(target);
         var li = target.closest(".player");
+        console.log(li);
         var id = li.getAttribute("data-id");
         var url = "/api/players/" + id
 
@@ -320,7 +202,29 @@ $(document).ready(function() {
       else {
         var newPosition = target.getAttribute("data-position");
         el.setAttribute("data-position", newPosition);
-        // target.textContent = "";
+        var id = el.getAttribute("data-id");
+        console.log(id);
+        var url = "/api/players/" + id
+
+        var playerData = {
+          position: newPosition
+        }
+
+        $.ajax(url, {
+
+            type: "PUT",
+
+            data: playerData,
+
+            error: function(req, err) { console.log("Your player failed to update with a new position" + err); }
+
+            }).then(() => {
+
+            // updatePlayers();
+
+            // location.reload();
+
+          });
       }
       
     });
