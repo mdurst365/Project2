@@ -1,7 +1,10 @@
 // Exporting and defining Player table
 module.exports = (sequelize,DataTypes) => {
     var Player = sequelize.define("Player",{
-        name: DataTypes.STRING,
+        name: { 
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         position:DataTypes.STRING
     });
 
