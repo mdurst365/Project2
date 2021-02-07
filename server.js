@@ -4,6 +4,7 @@
 // ******************************************************************************
 // *** Dependencies
 // =============================================================
+var dotenv = require('dotenv').config();
 var express = require("express");
 var passport = require("./config/passport");
 
