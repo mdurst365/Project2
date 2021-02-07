@@ -4,7 +4,9 @@
 // ******************************************************************************
 // *** Dependencies
 // =============================================================
-//var dotenv = require('dotenv').config();
+
+/* exported variableName */
+var dotenv = require('dotenv').config();
 var express = require("express");
 var passport = require("./config/passport");
 
