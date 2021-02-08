@@ -204,6 +204,14 @@ $(".update").on("click", e => {
 
   });
 
+  // gives an alert to the user before heading back to login page to confirm logout
+
+  $("#logOutLink").on("click", e => {
+
+    alert("You've been logged out. Come back soon!");
+    
+  });
+
   /* --------------------- */
   /* -- dragula scripts -- */
   /* --------------------- */
