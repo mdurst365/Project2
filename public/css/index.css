@@ -181,11 +181,14 @@ footer {
 }
 
 .container-benched {
-  min-height:30em;
+  min-height:5em;
   display:flex;
 }
 
-@media only screen and (max-width: 600px){
+.container-benched .player {
+  max-height:8em;
+}
+
   .benchedContainer {
     text-transform: uppercase;
     font-weight: bold;
@@ -266,11 +269,26 @@ li {
     height:100%;
 }
 
+.player {
+  position: relative;
+}
+
 .jersey {
     width:100%;
     margin:0px auto;
 }
 
+.jersey-number {
+  position: absolute;
+  top: 36%;
+  font-size: 25px;
+  width: 100%;
+  left: 0;
+}
+
+.container-benched .jersey-number {
+  display: none;
+}
 
 @media only screen and (max-width: 600px) {
   .jersey {
