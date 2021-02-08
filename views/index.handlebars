@@ -1,0 +1,124 @@
+
+{{!-- <h2>Welcome, {{user}}!</h2> --}}
+<div onload="positionPlayers()">
+  <ul id="fauxNav">
+    {{!--<li id="user-welcome">Welcome, {{user}}!</li>--}}
+    <li><a href="/login" id="logOutLink" onclick="logOut()"><button id="logOut">Log Out</button></a></li>
+  </ul>
+
+  <div class="position-relative">
+
+      <img src="/img/soccer-field.jpg" alt="soccer-field" id="field-img"/>
+
+      <div id="onFieldPositions">
+
+        <div class="positionContainer wings">
+
+          <div class="wingsFlex">
+
+            <ul class="container" data-position="Left Winger">
+            </ul>
+            <ul class="container" data-position="Center Forward">
+            </ul>
+            <ul class="container" data-position="Right Winger">
+            </ul>
+
+          </div>
+          
+        </div>
+
+        <div class="positionContainer insideForward">
+
+          <div class="insideForwardFlex">
+
+            <ul class="container" data-position="Inside Forward-1">
+            </ul>
+            <ul class="container" data-position="Inside Forward-2">
+            </ul>
+
+          </div>
+          
+        </div>
+
+
+        <div class="positionContainer halfback">
+
+          <div class="halfbackFlex">
+
+            <ul class="container" data-position="Halfback-1">
+            </ul>
+            <ul class="container" data-position="Halfback-2">
+            </ul>
+
+          </div>
+          
+        </div>
+
+        <div class="positionContainer fullback">
+
+          <div class="fullbackFlex">
+
+            <ul class="container" data-position="Fullback-1">
+            </ul>
+            <ul class="container" data-position="Fullback-2">
+            </ul>
+            <ul class="container" data-position="Fullback-3">
+            </ul>
+
+          </div>
+        
+      </div>
+
+        <div class="positionContainer GoalKeeper">
+
+          <ul class="container" data-position="Goal Keeper">
+          </ul>
+
+        </div>
+
+      </div>
+
+  </div>
+
+
+
+  <div class="formBenchedFlex">
+
+      <form class="addPlayerForm">
+        <h2>Add a New Player</h2>
+        <label for="newPlayerName">Player Name:</label>
+        <input type="text" id="newPlayerName" name="newPlayerName" />
+        <button type="submit" id="addNewPlayer">Add Player</button>
+      </form>
+
+
+    <div class="benchedContainer">
+
+      <!-- couldn't find a way to easily sort through players by position with handlebars. #each with further conditionals doesn't seem to work. so, by default and until finding a better solution, we are sorting them all default into the benched container (which will not change the position they came in with unless they are dragged in) and then an immediately invoked function will run a script to sort player to their respective positions if they have a preexisting one!-->
+
+      <h2>Benched</h2>
+      <ul class="container-benched" data-position="benched" id="benched">
+          {{#each players}}
+                  <li data-name="{{name}}" data-id="{{id}}" data-position="{{position}}" class="player">
+                      <span class="br">
+                          <button type="button" class="delete"><img src="/img/x.png" alt="delete this player"/></button>
+                          <button type="button" class="update"><img src="/img/edit.png" alt="update the name of this player"/></button>
+                      </span>
+
+                      <span class="br">
+                          <img src="/img/jersey.png" class="jersey" alt="jersey"/>
+                      </span>
+
+                      <span class="jersey-number">{{id}}</span>
+                      <span class="br name">{{name}}</span>
+                  </li>
+          {{/each}}
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.1.0/dragula.min.js"></script>
+<script src="/js/script.js" onload="positionPlayers()"></script>

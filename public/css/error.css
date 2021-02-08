@@ -1,0 +1,19 @@
+
+#error-flex {
+    width:100vw;
+    height:50vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px auto;
+}
+
+#error-header {
+    text-align: center;
+    display: block;
+    margin:0px auto;
+}
+
+#error-button {
+    margin-top:2%;
+}

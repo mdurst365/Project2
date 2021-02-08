@@ -1,0 +1,52 @@
+<div id="formContainer">
+    <div class="tab-bar">
+    <button class="bar-item activeTab" onclick="openOption('logIn')" id="loginButton">Log In</button>
+    <button class="bar-item" onclick="openOption('register')" id="registerButton">Register</button>
+    </div>
+
+    <div id="logIn" class="tab">
+        <h2>Welcome Back!</h2>
+        <form action="/login" method="POST" id="login-form">
+
+            <div class="br">
+                <label for="user">Username:</label>
+                <input type="text" name="user" id="loginUser"/>
+            </div>
+
+            <div class="br">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="loginPassword"/>
+            </div>
+
+            <button type="submit" name="login" id="loginButton">Login</button>
+        </form>
+    </div>
+
+    <div id="register" class="tab" style="display:none">
+        <h2>Sign Up and Join Us!</h2>
+         <form action="/signup" method="POST" id="register-form">
+
+            <div class="br">
+                <label for="user">Username:</label>
+                <input type="text" name="user" id="registerUser"/>
+            </div>
+
+            <div class="br">
+                <label for="password">Password:</label>
+                <input type="text" name="password" id="registerPassword"/>
+            </div>
+
+            <div class="br">
+                <label for="user">Team Name:</label>
+                <input type="text" name="teamName" id="registerTeamName"/>
+            </div>
+
+            <button type="submit" name="register" id="registerButton">Register</button>
+        </form>
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.1.0/dragula.min.js"></script>
+<script src="/js/script.js"></script>

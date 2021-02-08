@@ -7,23 +7,27 @@ var db = require("../models");
 passport.use(new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
   {
-    usernameField: "email"
+    usernameField: 'user'
+    
   },
-  function(email, password, done) {
+  function(name, password, done) {
     // When a user tries to sign in this code runs
+    console.log("name+passowrd",name, password);
     db.User.findOne({
       where: {
-        email: email
+        name
       }
     }).then(function(dbUser) {
       // If there's no user with the given email
       if (!dbUser) {
+        console.log("Incorrect Username");
         return done(null, false, {
           message: "Incorrect email."
         });
       }
       // If there is a user with the given email, but the password the user gives us is incorrect
       else if (!dbUser.validPassword(password)) {
+        console.log("invalid Password");
         return done(null, false, {
           message: "Incorrect password."
         });
