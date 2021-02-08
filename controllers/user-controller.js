@@ -33,8 +33,7 @@ module.exports = (app) =>{
         res.redirect(307, "/login")
         // If user entered Data is invalid then sends them to an error page with a link to login again
         }).catch(function(){
-            req.session.error = 'Incorrect username or password';
-            res.redirect(409, '/login');
+            res.redirect('error');
         });
     });
 
