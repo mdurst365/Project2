@@ -72,8 +72,6 @@ $(".bar-item").on("click", function(e) {
 
     event.preventDefault();
 
-    event.stopImmediatePropagation();
-
     var playerLimit = document.querySelectorAll(".container li, .container-benched li");
 
     if (playerLimit.length >= 11) {
@@ -129,7 +127,6 @@ $(".bar-item").on("click", function(e) {
 
   $(".delete").on("click", e => {
       e.preventDefault();
-      e.stopImmediatePropagation();
       var target = e.currentTarget;
       console.log(target);
       var li = target.closest(".player");
@@ -162,7 +159,6 @@ $(".bar-item").on("click", function(e) {
 
 $(".update").on("click", e => {
     e.preventDefault();
-    e.stopImmediatePropagation();
     console.log(e.currentTarget);
     var target = e.currentTarget;
     var li = target.closest(".player");
