@@ -74,7 +74,7 @@ $(".bar-item").on("click", function(e) {
 
     var playerLimit = document.querySelectorAll(".container li, .container-benched li");
 
-    if (playerLimit.length >= 11) {
+    if (playerLimit.length >= 23) {
 
       alert("You already have the maximum amount of players! Please delete a player to add another.");
     

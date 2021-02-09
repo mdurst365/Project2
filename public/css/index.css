@@ -189,15 +189,14 @@ footer {
   max-height:8em;
 }
 
-  .benchedContainer {
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: .9em;
-    border:1px solid #00243f;
-    border-radius:20px;
-    background-color: darkgreen;
-    color:white;
-  }
+.benchedContainer {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: .9em;
+  border:1px solid #00243f;
+  border-radius:20px;
+  background-color: darkgreen;
+  color:white;
 }
 
 .benchedContainer {
